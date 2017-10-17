@@ -32,6 +32,11 @@
 		C6B263281E7BC9DF009B4DEA /* IPAPatchEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B263261E7BC9DF009B4DEA /* IPAPatchEntry.m */; };
 		C6B2634D1E7BCB31009B4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B2634C1E7BCB31009B4DEA /* main.m */; };
 		C6B263501E7BCB31009B4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B2634F1E7BCB31009B4DEA /* AppDelegate.m */; };
+		E09096E21F95B39200277DF1 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = E09096E11F95B33100277DF1 /* JRSwizzle.m */; };
+		E09096E71F95B51000277DF1 /* UserData.h in Headers */ = {isa = PBXBuildFile; fileRef = E09096E61F95B51000277DF1 /* UserData.h */; };
+		E09096EF1F95B65D00277DF1 /* UserData+Hook.h in Headers */ = {isa = PBXBuildFile; fileRef = E09096ED1F95B65D00277DF1 /* UserData+Hook.h */; };
+		E09096F01F95B65D00277DF1 /* UserData+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = E09096EE1F95B65D00277DF1 /* UserData+Hook.m */; };
+		E09096F11F95B65D00277DF1 /* UserData+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = E09096EE1F95B65D00277DF1 /* UserData+Hook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		C6B2635C1E7BCB31009B4DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6B263621E7BCD03009B4DEA /* patch.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = patch.sh; sourceTree = "<group>"; };
 		C6DDBB621F5146AD00A42BE2 /* create_ipa.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = create_ipa.sh; sourceTree = "<group>"; };
+		E09096E01F95B33100277DF1 /* JRSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		E09096E11F95B33100277DF1 /* JRSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		E09096E61F95B51000277DF1 /* UserData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		E09096ED1F95B65D00277DF1 /* UserData+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserData+Hook.h"; sourceTree = "<group>"; };
+		E09096EE1F95B65D00277DF1 /* UserData+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserData+Hook.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				C63AC1A01E838B8E0094B1C5 /* Vendors */,
+				E09096DF1F95B33100277DF1 /* jrswizzle */,
+				E09096E31F95B3D700277DF1 /* Header */,
+				E09096E41F95B3DE00277DF1 /* Hook */,
 				C6B2630B1E7BC97B009B4DEA /* Info.plist */,
 				C6B263251E7BC9DF009B4DEA /* IPAPatchEntry.h */,
 				C6B263261E7BC9DF009B4DEA /* IPAPatchEntry.m */,
@@ -172,6 +185,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E09096DF1F95B33100277DF1 /* jrswizzle */ = {
+			isa = PBXGroup;
+			children = (
+				E09096E01F95B33100277DF1 /* JRSwizzle.h */,
+				E09096E11F95B33100277DF1 /* JRSwizzle.m */,
+			);
+			path = jrswizzle;
+			sourceTree = "<group>";
+		};
+		E09096E31F95B3D700277DF1 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E09096E61F95B51000277DF1 /* UserData.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E09096E41F95B3DE00277DF1 /* Hook */ = {
+			isa = PBXGroup;
+			children = (
+				E09096ED1F95B65D00277DF1 /* UserData+Hook.h */,
+				E09096EE1F95B65D00277DF1 /* UserData+Hook.m */,
+			);
+			path = Hook;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -180,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6B263271E7BC9DF009B4DEA /* IPAPatchEntry.h in Headers */,
+				E09096E71F95B51000277DF1 /* UserData.h in Headers */,
 				C63AC1A61E838BB70094B1C5 /* fishhook.h in Headers */,
+				E09096EF1F95B65D00277DF1 /* UserData+Hook.h in Headers */,
 				C63AC1AA1E8392210094B1C5 /* IPAPatchBypassAntiDebugging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +272,7 @@
 		C6B262FE1E7BC97B009B4DEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Weibo;
 				TargetAttributes = {
 					C6B263061E7BC97B009B4DEA = {
@@ -241,6 +282,7 @@
 					};
 					C6B263481E7BCB31009B4DEA = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 4R7AXFL8HB;
 						ProvisioningStyle = Automatic;
 					};
 					C6DDBB5C1F51468D00A42BE2 = {
@@ -322,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63AC1AB1E8392210094B1C5 /* IPAPatchBypassAntiDebugging.m in Sources */,
+				E09096E21F95B39200277DF1 /* JRSwizzle.m in Sources */,
+				E09096F11F95B65D00277DF1 /* UserData+Hook.m in Sources */,
 				C6B263281E7BC9DF009B4DEA /* IPAPatchEntry.m in Sources */,
 				C63AC1A51E838BB70094B1C5 /* fishhook.c in Sources */,
 			);
@@ -333,6 +377,7 @@
 			files = (
 				C64288391E7BF9E900C0BBB0 /* ProjectConfigurationWarning.cpp in Sources */,
 				C6B263501E7BCB31009B4DEA /* AppDelegate.m in Sources */,
+				E09096F01F95B65D00277DF1 /* UserData+Hook.m in Sources */,
 				C6B2634D1E7BCB31009B4DEA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +408,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -371,7 +418,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -415,7 +466,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -423,7 +476,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -498,7 +555,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R7AXFL8HB;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -508,7 +565,7 @@
 				INFOPLIST_FILE = "IPAPatch-DummyApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wutian.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wc.lovedays;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -522,13 +579,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R7AXFL8HB;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_BUNDLE_ID=$(PRODUCT_BUNDLE_IDENTIFIER)";
 				INFOPLIST_FILE = "IPAPatch-DummyApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wutian.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wc.lovedays;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

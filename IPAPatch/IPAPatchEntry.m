@@ -9,6 +9,8 @@
 #import "IPAPatchEntry.h"
 #import <UIKit/UIKit.h>
 
+#import "UserData+Hook.h"
+
 @implementation IPAPatchEntry
 
 + (void)load
@@ -16,7 +18,8 @@
     // DO YOUR WORKS...
     
     // For Example:
-    [self for_example_showAlert];
+//    [self for_example_showAlert];
+    [self hook];
 }
 
 + (void)for_example_showAlert
@@ -30,6 +33,10 @@
         }
         [controller presentViewController:alertController animated:YES completion:NULL];
     });
+}
+
++ (void)hook {
+    [NSClassFromString(@"UserData") hookUserData];
 }
 
 @end
